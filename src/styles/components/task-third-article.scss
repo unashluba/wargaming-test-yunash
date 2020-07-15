@@ -1,0 +1,62 @@
+.article-container
+{
+    column-count:  2;
+    column-fill:   auto;
+    column-gap:    3em;
+    column-width:  auto;
+    column-rule:   1px solid gray;
+    padding-right: 49px;
+
+    @media #{$devices}
+    {
+        column-count: 1;
+    }
+}
+
+.article-paragraph
+{
+    @include paragraph;
+    margin-bottom: 19px;
+    text-indent:   $padding-small;
+
+    &:not(:first-of-type)
+    {
+        margin-top: $padding-default;
+    }
+}
+
+.article-list
+{
+    @include paragraph;
+
+    &.part-one
+    {
+        counter-reset: articlecounter;
+    }
+
+    &.part-one,
+    &.part-two
+    {
+        > li
+        {
+            &::before
+            {
+                content:           counter(articlecounter) '. ';
+                counter-increment: articlecounter;
+                font-weight:       bolder;
+                color:             $medium-gray;
+            }
+        }
+    }
+}
+
+.article-list-title
+{
+    margin-top: 4px;
+    color:      $medium-gray;
+}
+
+.article-list-content
+{
+    padding-left: $padding-small;
+}

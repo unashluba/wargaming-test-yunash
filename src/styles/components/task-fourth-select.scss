@@ -1,0 +1,120 @@
+.select-widget
+{
+    position:         relative;
+    padding:          $padding-default;
+    background-color: $medium-gray;
+    color:            $white;
+}
+
+.select-widget-title
+{
+    margin-bottom: $padding-default;
+    color:         $white;
+}
+
+.select-button
+{
+    display:          inline-block;
+    margin:           30px 0;
+    padding:          10px 25px;
+    background-color: $green;
+    color:            $black;
+    cursor:           pointer;
+
+    + .select-button
+    {
+        margin-left: $padding-default;
+    }
+}
+
+.select-close
+{
+    position: absolute;
+    top:      $padding-default;
+    right:    $padding-default;
+    color:    $white;
+    cursor:   pointer;
+}
+
+.select-selected-title
+{
+    margin-bottom: $padding-default;
+
+    .select-widget &
+    {
+        color: $white;
+    }
+}
+
+.select-selected-item
+{
+    display:          inline-block;
+    padding:          $padding-small;
+    background-color: $black;
+
+    + .select-selected-item
+    {
+        margin-left: $padding-default;
+    }
+}
+
+.select-selected-copy
+{
+    color: $white;
+}
+
+.select-remove-selected-icon
+{
+    display:     inline-block;
+    margin-left: 10px;
+    cursor:      pointer;
+}
+
+.select-list
+{
+    height:           400px;
+    margin-bottom:    $padding-default;
+    overflow-y:       auto;
+    padding:          30px;
+    background-color: $black;
+}
+
+.select-list-item
+{
+    + .select-list-item
+    {
+        margin-top: $padding-small;
+    }
+}
+
+.select-checkbox
+{
+    &.hide
+    {
+        display: none;
+    }
+
+    label
+    {
+        color: $white;
+    }
+}
+
+.select-widget-search-filter-container
+{
+    display:         flex;
+    margin-bottom:   $padding-default;
+    justify-content: space-between;
+}
+
+.select-widget-search-filter
+{
+    display:     flex;
+    align-items: center;
+
+    .search-filter-label
+    {
+        margin-right: $padding-small;
+        color:        $white;
+    }
+}

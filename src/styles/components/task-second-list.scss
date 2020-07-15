@@ -1,0 +1,157 @@
+@mixin active-item()
+{
+    background-color: $gray;
+    color:            $white;
+    border-radius:    5px;
+}
+
+@mixin mobile-list-container()
+{
+    padding:          11px 9px 8px 28px;
+    background-image: linear-gradient(180deg, $white 0%, $gray-10 57%, $gray-11 100%);
+    border:           1px solid $white;
+    box-shadow:       0 2px 4px 0 $gray-12, 0 2px 9px 0 $gray-13;
+}
+
+$burger-stripe-height: 2px;
+
+.list
+{
+    @include paragraph;
+    display:    inline-flex;
+    transition: $transition;
+
+    @media #{$devices}
+    {
+        @include mobile-list-container;
+        display: none;
+    }
+}
+
+.list-item-active
+{
+    display: none;
+
+    @media #{$devices}
+    {
+        @include paragraph;
+        @include mobile-list-container;
+        display:      inline-block;
+        position:     relative;
+        margin-right: $padding-default;
+        cursor:       pointer;
+    }
+
+    &::before,
+    &::after
+    {
+        @media #{$devices}
+        {
+            position:  absolute;
+            top:       50%;
+            left:      8px;
+            width:     14px;
+            content:   '';
+            transform: translateY(calc(-50% - #{$burger-stripe-height}));
+        }
+    }
+
+    &::before
+    {
+        @media #{$devices}
+        {
+            height:        $burger-stripe-height;
+            border-top:    $burger-stripe-height solid $gray;
+            border-bottom: $burger-stripe-height solid $gray;
+        }
+    }
+
+    &::after
+    {
+        @media #{$devices}
+        {
+            height:           $burger-stripe-height;
+            background-color: $gray;
+            margin-top:       $burger-stripe-height * 3;
+        }
+    }
+
+    &.opened
+    {
+        + .list
+        {
+            @media #{$devices}
+            {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.list-item
+{
+    @include paragraph;
+    position:   relative;
+    transition: $transition;
+
+    @media #{$desktops}
+    {
+        padding: 3px 7px;
+    }
+
+    + .list-item
+    {
+        @media #{$desktops}
+        {
+            margin-left: 11px;
+        }
+
+        @media #{$devices}
+        {
+            margin-top: 8px;
+        }
+    }
+
+    &.active
+    {
+        @media #{$desktops}
+        {
+            @include active-item;
+        }
+
+        @media #{$devices}
+        {
+            color: $black;
+        }
+
+        &::before
+        {
+            @media #{$devices}
+            {
+                position:  absolute;
+                left:      0;
+                top:       50%;
+                content:   '\2192';
+                transform: translate(calc(-100% - 5px), -50%);
+            }
+        }
+    }
+
+    &:not(.active)
+    {
+        cursor: pointer;
+
+        &:hover
+        {
+            @media #{$desktops}
+            {
+                @include active-item;
+            }
+
+            @media #{$devices}
+            {
+                color: $black;
+            }
+        }
+    }
+}

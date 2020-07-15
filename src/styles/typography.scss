@@ -1,0 +1,17 @@
+@mixin paragraph($font-size: 14px)
+{
+    font-size:   $font-size;
+    line-height: 1.286;
+}
+
+.title-second
+{
+    margin-bottom: 18px;
+    font-size:     18px;
+}
+
+.paragraph
+{
+    @include paragraph;
+    margin-bottom: 10px;
+}
