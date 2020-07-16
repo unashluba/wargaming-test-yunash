@@ -11,7 +11,7 @@ const SearchField = ({ onChange, value }: Props) => {
       <span className="search-filter-label">Поиск</span>
       <input
         type="text"
-        onChange={(event: React.FormEvent<HTMLInputElement>) =>
+        onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
           onChange(event.target.value)
         }
         value={value}

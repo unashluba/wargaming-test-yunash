@@ -22,7 +22,10 @@ const CheckboxesList = ({
     <div className="select-list">
       {listItems.map((item, index) => {
         return (
-          <div className="select-list-item" key={item}>
+          <div
+            className="select-list-item"
+            key={`${item}-${checkboxState[index]}`}
+          >
             <Checkbox
               item={item}
               index={index}

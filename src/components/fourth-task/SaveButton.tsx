@@ -1,40 +1,12 @@
 import * as React from "react"
 
 interface Props {
-  listItems: string[]
-  checkboxState: boolean[]
-  setSelected: () => void
   onClick: () => void
 }
 
-const SaveButton = ({
-  listItems,
-  checkboxState,
-  setSelected,
-  onClick,
-}: Props) => {
-  const handleSaveButton = () => {
-    const newSelectedItems: string[] = []
-
-    {
-      listItems.map((item, index) => {
-        if (checkboxState[index]) {
-          newSelectedItems.push(item)
-        }
-      })
-    }
-
-    setSelected(newSelectedItems.slice())
-  }
-
+const SaveButton = ({ onClick }: Props) => {
   return (
-    <button
-      className="select-button"
-      onClick={() => {
-        handleSaveButton()
-        onClick()
-      }}
-    >
+    <button className="select-button" onClick={() => onClick()}>
       Сохранить
     </button>
   )

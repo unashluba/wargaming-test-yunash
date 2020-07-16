@@ -12,7 +12,6 @@ const IndexPage = () => {
   ]
   const elementsNumber = 300
   const initChecked: number[] = [4, 7]
-  const selectedElements: string[] = []
   const elements: string[] = []
   const states: boolean[] = []
 
@@ -21,12 +20,7 @@ const IndexPage = () => {
     const isInitChecked = initChecked.includes(i)
 
     elements.push(element)
-
     states.push(isInitChecked)
-
-    if (isInitChecked) {
-      selectedElements.push(element)
-    }
   }
 
   return (
@@ -34,11 +28,7 @@ const IndexPage = () => {
       <SectionFirstTask />
       <SectionSecondTask responsiveListItems={responsiveList} />
       <SectionThirdTask />
-      <SectionFourthTask
-        listItems={elements}
-        itemsStates={states}
-        selectedItems={selectedElements}
-      />
+      <SectionFourthTask listItems={elements} itemsStates={states} />
     </div>
   )
 }

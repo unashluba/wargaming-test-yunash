@@ -9,15 +9,13 @@ interface Props {
   listItems: string[]
   itemsStates: boolean[]
   onClose: (value: boolean) => void
-  selected: string[]
-  setSelected: () => void
+  setSelected: (selected: boolean[]) => void
 }
 
 const WidgetContainer = ({
   listItems,
   onClose,
   itemsStates,
-  selected,
   setSelected,
 }: Props) => {
   const [checkboxState, setCheckboxState] = React.useState(itemsStates)
@@ -28,6 +26,12 @@ const WidgetContainer = ({
     const newItemsStates = itemsStates.slice()
 
     setCheckboxState(newItemsStates)
+  }
+
+  const onSaveButtonClick = () => {
+    setSelected(checkboxState.slice())
+
+    onClose(false)
   }
 
   const [searchValue, setSearchValue] = React.useState("")
@@ -61,7 +65,10 @@ const WidgetContainer = ({
         {listItems.map((item, index) => {
           if (checkboxState[index]) {
             return (
-              <div key={item} className="select-selected-item">
+              <div
+                key={`${item}-${checkboxState[index]}`}
+                className="select-selected-item"
+              >
                 <Checkbox
                   item={item}
                   handleCheckboxChange={() => handleCheckboxChange(index)}
@@ -73,12 +80,7 @@ const WidgetContainer = ({
         })}
       </div>
 
-      <SaveButton
-        listItems={listItems}
-        checkboxState={checkboxState}
-        setSelected={setSelected}
-        onClick={() => onClose(false)}
-      />
+      <SaveButton onClick={() => onSaveButtonClick()} />
       <button className="select-button" onClick={() => onClose(false)}>
         Отмена
       </button>

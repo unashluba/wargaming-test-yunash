@@ -1,22 +1,31 @@
 import * as React from "react"
 
 interface Props {
-  onChange: (value: string) => void
+  value: number
+  onChange: (value: number) => void
 }
 
-const Filter = ({ onChange }: Props) => {
+const Filter = ({ onChange, value }: Props) => {
   return (
     <div className="select-widget-search-filter">
       <span className="search-filter-label">Фильтр</span>
       <select
-        onChange={(event: React.FormEvent<HTMLSelectElement>) =>
-          onChange(event.target.value)
+        onChange={(event: React.ChangeEvent<HTMLSelectElement>) =>
+          onChange(Number(event.target.value))
         }
       >
-        <option value={0}>Без фильтра</option>
-        <option value={10}>Номер > 10</option>
-        <option value={100}>Номер > 100</option>
-        <option value={200}>Номер > 200</option>
+        <option selected={value === 0} value={0}>
+          Без фильтра
+        </option>
+        <option selected={value === 10} value={10}>
+          Номер > 10
+        </option>
+        <option selected={value === 100} value={100}>
+          Номер > 100
+        </option>
+        <option selected={value === 200} value={200}>
+          Номер > 200
+        </option>
       </select>
     </div>
   )
