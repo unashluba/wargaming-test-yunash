@@ -1,11 +1,17 @@
 .article-container
 {
-    column-count:  2;
-    column-fill:   auto;
-    column-gap:    3em;
-    column-width:  auto;
-    column-rule:   1px solid gray;
-    padding-right: 49px;
+    //префиксы это хот фикс, заметила в последний момент, что не работает в мозиле. это должен делать автопрефиксер
+    -webkit-column-count: 2;
+    -moz-column-count:    2;
+    column-count:         2;
+    -webkit-column-width: auto;
+    -moz-column-width:    auto;
+    column-width:         auto;
+    -webkit-column-gap:   3em;
+    -moz-column-gap:      3em;
+    column-gap:           3em;
+    column-rule:          1px solid gray;
+    padding-right:        49px;
 
     @media #{$devices}
     {
