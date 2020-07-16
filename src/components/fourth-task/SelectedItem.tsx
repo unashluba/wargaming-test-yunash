@@ -10,7 +10,7 @@ const SelectedItem = ({ item, onClick }: Props) => {
     <span key={item} className="select-selected-copy">
       {item}
       <span className="select-remove-selected-icon" onClick={onClick}>
-        x
+          X
       </span>
     </span>
   )

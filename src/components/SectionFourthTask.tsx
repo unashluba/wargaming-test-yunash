@@ -55,6 +55,7 @@ const SectionFourthTask = ({
       <button
         className="select-button"
         onClick={() => setShowWidgetContainer(true)}
+        disabled={!!showWidgetContainer}
       >
         Изменить мой выбор
       </button>

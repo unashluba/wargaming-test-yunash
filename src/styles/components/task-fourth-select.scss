@@ -12,6 +12,102 @@
     color:         $white;
 }
 
+.select-widget-search-filter-container
+{
+    display:         flex;
+    justify-content: space-between;
+    flex-wrap:       wrap;
+    margin-bottom:   $padding-default;
+}
+
+.select-widget-search-filter
+{
+    display:     flex;
+    align-items: center;
+
+    .search-filter-label
+    {
+        margin-right: $padding-small;
+        color:        $white;
+    }
+}
+
+.select-selected-item
+{
+    display:          inline-block;
+    padding:          $padding-small;
+    background-color: $black;
+
+    @media #{$mobiles}
+    {
+        display: block;
+    }
+
+    + .select-selected-item
+    {
+        margin-left: $padding-default;
+
+        @media #{$mobiles}
+        {
+            margin-top:  $padding-default;
+            margin-left: 0;
+        }
+    }
+
+    .select-widget &
+    {
+        label
+        {
+            position:       relative;
+            padding-right:  50px;
+            pointer-events: none;
+
+            &::after
+            {
+                position:       absolute;
+                top:            50%;
+                right:          0;
+                padding-left:   $padding-small;
+                border-left:    1px solid $white;
+                transform:      translateY(-50%);
+                content:        "X";
+                pointer-events: auto;
+                cursor:         pointer;
+            }
+        }
+
+        input
+        {
+            display: none;
+        }
+    }
+}
+
+.select-selected-title
+{
+    margin-bottom: $padding-default;
+
+    .select-widget &
+    {
+        color: $white;
+    }
+}
+
+.select-selected-copy
+{
+    color: $white;
+}
+
+.select-remove-selected-icon
+{
+    display:      inline-block;
+    margin-left:  $padding-default;
+    padding-left: $padding-small;
+    border-left:  1px solid $white;
+    cursor:       pointer;
+    color:        $white;
+}
+
 .select-button
 {
     display:          inline-block;
@@ -25,6 +121,12 @@
     {
         margin-left: $padding-default;
     }
+
+    &:disabled
+    {
+        opacity: 0.8;
+        cursor:  not-allowed;
+    }
 }
 
 .select-close
@@ -34,40 +136,6 @@
     right:    $padding-default;
     color:    $white;
     cursor:   pointer;
-}
-
-.select-selected-title
-{
-    margin-bottom: $padding-default;
-
-    .select-widget &
-    {
-        color: $white;
-    }
-}
-
-.select-selected-item
-{
-    display:          inline-block;
-    padding:          $padding-small;
-    background-color: $black;
-
-    + .select-selected-item
-    {
-        margin-left: $padding-default;
-    }
-}
-
-.select-selected-copy
-{
-    color: $white;
-}
-
-.select-remove-selected-icon
-{
-    display:     inline-block;
-    margin-left: 10px;
-    cursor:      pointer;
 }
 
 .select-list
@@ -97,24 +165,5 @@
     label
     {
         color: $white;
-    }
-}
-
-.select-widget-search-filter-container
-{
-    display:         flex;
-    margin-bottom:   $padding-default;
-    justify-content: space-between;
-}
-
-.select-widget-search-filter
-{
-    display:     flex;
-    align-items: center;
-
-    .search-filter-label
-    {
-        margin-right: $padding-small;
-        color:        $white;
     }
 }

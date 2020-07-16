@@ -33,5 +33,7 @@ $gray-13: rgba(0, 0, 0, 0.12);
 $transition: all .5s ease;
 
 $device-max: 800px;
+$mobile-max: 479px;
 $desktops: 'only screen and (min-width: #{$device-max + 1})';
 $devices: 'only screen and (max-width: #{$device-max})';
+$mobiles: 'only screen and (max-width: #{$mobile-max})';
